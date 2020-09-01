@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const port = 3001
+const port = 3012
 
 //import file routes
-const routerUser = require('./routes/users')
+const routerUsers = require('./routes/users')
 
 //load routes
-app.use('/', routerUser)
+app.use('/', routerUsers)
 
 
 
