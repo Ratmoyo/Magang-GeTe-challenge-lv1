@@ -1,27 +1,6 @@
 const express = require('express');
 const router = express.Router()
-const bodyParser = require('body-parser');
-const mysql = require('mysql');
-
-
-// parse application/json
-router.use(bodyParser.json());
-
-
-//  login database
-const conn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'magang_challenge'
-});
-
-//connect ke datbase
-conn.connect((err) => {
-    if (err) throw err;
-    console.log('Mysql Connected bismillah...');
-});
-
+const conn = require('../connect-db')
 
 //menampilkan daftar user
 router.get('/', (req, res) => {
