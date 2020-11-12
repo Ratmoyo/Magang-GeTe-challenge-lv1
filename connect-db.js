@@ -1,18 +1,20 @@
 const mysql = require('mysql');
+const dotenv = require('dotenv'); //load package
 
-//  login database
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'magang_challenge'
+//load dotenv config
+dotenv.config();
+
+
+const conn = mysql.createConnection({
+    host: process.env.db_host,
+    user: process.env.db_user,
+    password: process.env.db_password,
+    database: process.env.db_name
 });
 
-//connect ke datbase
-connection.connect((err) => {
-    if (err) throw err;
-    console.log('Mysql Connected bismillah...');
+conn.connect(function(err) {
+    if(err) throw err;
+    console.log('MySql Connected...');
 });
 
-
-module.exports = connection;
+module.exports=conn;

@@ -1,16 +1,15 @@
 const express = require('express')
 const app = express()
-const bodyParser = require('body-parser');
 const port = 3012
 
 //import file routes
 const routerUsers = require('./routes/users')
+const routerAuth = require('./routes/auth')
 
-// parse application/json
-app.use(bodyParser.json());
 
 //load routes
-app.use('/', routerUsers)
+app.use('/user', routerUsers)
+app.use('/login', routerAuth)
 
 
 
